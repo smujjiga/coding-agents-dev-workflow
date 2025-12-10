@@ -26,8 +26,11 @@ I'll help you create a detailed implementation plan. Let me start by understandi
 Please provide:
 1. The task/ticket description (or reference to a ticket file)
 2. Path to related research document (if you ran /research first)
-3. Any relevant context, constraints, or specific requirements
-4. Links to related research or previous implementations
+3. Which verification script should I use for automated checks?
+   - ~/check-mls.py (for mls)
+   - ~/check.py (for no)
+4. Any relevant context, constraints, or specific requirements
+5. Links to related research or previous implementations
 
 I'll analyze this information and work with you to create a comprehensive plan.
 ```
@@ -109,6 +112,10 @@ Then wait for the user's input.
    - [Current implementation detail with file:line reference]
    - [Relevant pattern or constraint discovered]
    - [Potential complexity or edge case identified]
+
+   Before I create the plan, which verification script should I use for automated checks?
+   - ~/check-mls.py (for multi-service projects)
+   - ~/check.py (for single projects)
 
    Questions that my research couldn't answer:
    - [Specific technical question that requires human judgment]
@@ -272,11 +279,7 @@ After structure approval:
 ### Success Criteria:
 
 #### Automated Verification:
-- [ ] Migration applies cleanly: `make migrate`
-- [ ] Unit tests pass: `make test-component`
-- [ ] Type checking passes: `npm run typecheck`
-- [ ] Linting passes: `make lint`
-- [ ] Integration tests pass: `make test-integration`
+- [ ] All checks pass: `~/check.py` (includes tests, type checking, linting, formatting)
 
 #### Manual Verification:
 - [ ] Feature works as expected when tested via UI
@@ -367,7 +370,7 @@ After structure approval:
    - Research actual code patterns using parallel sub-tasks
    - Include specific file paths and line numbers
    - Write measurable success criteria with clear automated vs manual distinction
-   - automated steps should use `make` whenever possible - for example `make -C humanlayer-wui check` instead of `cd humanlayer-wui && bun run fmt`
+   - Automated verification should use the appropriate check script (`~/check.py` or `~/check-mls.py`) which handles tests, type checking, linting, and formatting
 
 4. **Be Practical**:
    - Focus on incremental, testable changes
@@ -408,10 +411,8 @@ After structure approval:
 ### Success Criteria:
 
 #### Automated Verification:
-- [ ] Database migration runs successfully: `make migrate`
-- [ ] All unit tests pass: `go test ./...`
-- [ ] No linting errors: `golangci-lint run`
-- [ ] API endpoint returns 200: `curl localhost:8080/api/new-endpoint`
+- [ ] All checks pass: `~/check.py` (includes tests, type checking, linting, formatting)
+- [ ] API endpoint responds correctly: `curl localhost:8080/api/new-endpoint`
 
 #### Manual Verification:
 - [ ] New feature appears correctly in the UI

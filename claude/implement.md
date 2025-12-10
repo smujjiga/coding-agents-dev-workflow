@@ -1,10 +1,10 @@
 ---
-description: Implement technical plans from ./research/ with verification
+description: Implement technical plans with verification
 ---
 
 # Implement Plan
 
-You are tasked with implementing an approved technical plan from `./research/`. These plans contain phases with specific changes and success criteria.
+You are tasked with implementing an approved technical plan that will be given to you as a path. These plans contain phases with specific changes and success criteria.
 
 ## Getting Started
 
@@ -42,8 +42,14 @@ If you encounter a mismatch:
 
 ## Verification Approach
 
+Plans contain two types of success criteria for each phase:
+1. **Automated Verification** - Commands you can run immediately (e.g., `~/check.py`)
+2. **Manual Verification** - Steps requiring human testing
+
+Your workflow:
+
 After implementing a phase:
-- Run the success criteria checks (usually `~/check-mls.sh` if the path has a folder named "mls" in it  or `~/check.sh` if the path has a folder named "ML" in it covers everything)
+- Run the automated verification checks listed in the plan's success criteria (typically `~/check.py` or `~/check-mls.py` which includes tests, type checking, linting, and formatting)
 - Fix any issues before proceeding
 - Update your progress in both the plan and your todos
 - Check off completed items in the plan file itself using Edit

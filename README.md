@@ -22,7 +22,7 @@ codingagents-dev-workflow/
 
 ## Claude Code Workflow
 
-Located in `claude/`, these are slash command templates for Claude Code:
+Located in `claude/`, these are slash command templates for Claude Code (copy them to `.claude/commands/`):
 
 ### Commands
 
