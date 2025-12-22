@@ -11,12 +11,19 @@ Rather than jumping straight into code changes, this workflow emphasizes:
 2. **Plan**: Design the implementation with full context
 3. **Implement**: Execute with clear guidance and validation
 
+## Prerequisites
+
+- Git
+- [uv](https://docs.astral.sh/uv/) (Python package manager)
+- ruff (linting/formatting) - typically installed via `uv`
+- basedpyright (type checking) - typically installed via `uv`
+
 ## Structure
 
 ```
 codingagents-dev-workflow/
 ├── claude/          # Claude Code workflow commands
-├── shared/          # Shared utilities across AI tools
+├── shared/          # Reserved for shared utilities (future use)
 └── README.md        # This file
 ```
 
@@ -38,7 +45,7 @@ Located in `claude/`, these are slash command templates for Claude Code (copy th
 
 - **`implement.md`** - Execute implementation plans
   - Follows the plan step-by-step
-  - Runs automated verification
+  - Runs automated verification (`uv run ruff check`, `uv run basedpyright`)
   - Pauses for manual confirmation
 
 - **`spec_metadata.sh`** - Collect git/timestamp metadata
@@ -49,7 +56,7 @@ Located in `claude/`, these are slash command templates for Claude Code (copy th
 
 1. Copy the `claude/` contents to your Claude Code commands directory:
    ```bash
-   cp claude/* ~/.claude/commands/
+   mkdir ~/.claude/commands/; cp claude/* ~/.claude/commands/
    ```
 
 2. Make the metadata script executable:
@@ -75,6 +82,10 @@ Located in `claude/`, these are slash command templates for Claude Code (copy th
 
 # 3. Implement the plan
 /implement ./plan/2025-01-10-add-oauth.md
+# At each phase, automated verification runs:
+#   - uv run ruff check (linting/formatting)
+#   - uv run basedpyright (type checking)
+# Then pauses for manual verification before proceeding
 ```
 
 ## Key Features
@@ -93,7 +104,7 @@ Located in `claude/`, these are slash command templates for Claude Code (copy th
 
 ### Implement Command
 - **Plan-driven**: Follows the implementation plan exactly
-- **Validation gates**: Automated checks at each phase
+- **Validation gates**: Automated checks at each phase (ruff, basedpyright)
 - **Human-in-loop**: Pauses for manual confirmation before proceeding
 - **Error handling**: Stops and reports issues clearly
 
@@ -126,4 +137,5 @@ MIT License - See LICENSE file for details
 
 ## Credits
 
-Created to bring systematic, research-driven development to AI-assisted coding.
+- [Created to bring systematic, research-driven development to AI-assisted coding.](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md)
+

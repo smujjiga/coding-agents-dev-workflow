@@ -43,13 +43,13 @@ If you encounter a mismatch:
 ## Verification Approach
 
 Plans contain two types of success criteria for each phase:
-1. **Automated Verification** - Commands you can run immediately (e.g., `~/check.py`)
+1. **Automated Verification** - Commands you can run immediately (e.g., `uv run ruff check` and `uv run basedpyright`)
 2. **Manual Verification** - Steps requiring human testing
 
 Your workflow:
 
 After implementing a phase:
-- Run the automated verification checks listed in the plan's success criteria (typically `~/check.py` or `~/check-mls.py` which includes tests, type checking, linting, and formatting)
+- Run the automated verification checks listed in the plan's success criteria (typically `uv run ruff check` for linting/formatting and `uv run basedpyright` for type checking)
 - Fix any issues before proceeding
 - Update your progress in both the plan and your todos
 - Check off completed items in the plan file itself using Edit

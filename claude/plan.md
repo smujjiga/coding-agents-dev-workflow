@@ -26,11 +26,8 @@ I'll help you create a detailed implementation plan. Let me start by understandi
 Please provide:
 1. The task/ticket description (or reference to a ticket file)
 2. Path to related research document (if you ran /research first)
-3. Which verification script should I use for automated checks?
-   - ~/check-mls.py (for mls)
-   - ~/check.py (for no)
-4. Any relevant context, constraints, or specific requirements
-5. Links to related research or previous implementations
+3. Any relevant context, constraints, or specific requirements
+4. Links to related research or previous implementations
 
 I'll analyze this information and work with you to create a comprehensive plan.
 ```
@@ -112,10 +109,6 @@ Then wait for the user's input.
    - [Current implementation detail with file:line reference]
    - [Relevant pattern or constraint discovered]
    - [Potential complexity or edge case identified]
-
-   Before I create the plan, which verification script should I use for automated checks?
-   - ~/check-mls.py (for multi-service projects)
-   - ~/check.py (for single projects)
 
    Questions that my research couldn't answer:
    - [Specific technical question that requires human judgment]
@@ -279,7 +272,8 @@ After structure approval:
 ### Success Criteria:
 
 #### Automated Verification:
-- [ ] All checks pass: `~/check.py` (includes tests, type checking, linting, formatting)
+- [ ] Linting and formatting pass: `uv run ruff check`
+- [ ] Type checking passes: `uv run basedpyright`
 
 #### Manual Verification:
 - [ ] Feature works as expected when tested via UI
@@ -370,7 +364,7 @@ After structure approval:
    - Research actual code patterns using parallel sub-tasks
    - Include specific file paths and line numbers
    - Write measurable success criteria with clear automated vs manual distinction
-   - Automated verification should use the appropriate check script (`~/check.py` or `~/check-mls.py`) which handles tests, type checking, linting, and formatting
+   - Automated verification should use `uv run ruff check` (linting/formatting) and `uv run basedpyright` (type checking)
 
 4. **Be Practical**:
    - Focus on incremental, testable changes
@@ -411,7 +405,8 @@ After structure approval:
 ### Success Criteria:
 
 #### Automated Verification:
-- [ ] All checks pass: `~/check.py` (includes tests, type checking, linting, formatting)
+- [ ] Linting and formatting pass: `uv run ruff check`
+- [ ] Type checking passes: `uv run basedpyright`
 - [ ] API endpoint responds correctly: `curl localhost:8080/api/new-endpoint`
 
 #### Manual Verification:
