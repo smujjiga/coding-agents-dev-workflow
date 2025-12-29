@@ -33,17 +33,17 @@ Located in `claude/`, these are slash command templates for Claude Code (copy th
 
 ### Commands
 
-- **`research.md`** - Document and understand codebase as-is
+- **`do_research.md`** - Document and understand codebase as-is
   - Spawns parallel research agents
   - Creates structured research documents in `./research/`
   - Focuses on "what exists" not "what should be"
 
-- **`plan.md`** - Create detailed implementation plans
+- **`do_plan.md`** - Create detailed implementation plans
   - Reads research outputs first
   - Validates findings and fills gaps
   - Produces actionable implementation plans in `./plan/`
 
-- **`implement.md`** - Execute implementation plans
+- **`do_implement.md`** - Execute implementation plans
   - Follows the plan step-by-step
   - Runs automated verification (`uv run ruff check`, `uv run basedpyright`)
   - Pauses for manual confirmation
@@ -66,7 +66,7 @@ Located in `claude/`, these are slash command templates for Claude Code (copy th
 
 3. Ensure the script path in commands matches your setup:
    - Default: `~/spec_metadata.sh`
-   - Adjust in `research.md` and `plan.md` if needed
+   - Adjust in `do_research.md` and `do_plan.md` if needed
 
 ### Usage Example
 
